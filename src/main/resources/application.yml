@@ -1,0 +1,8 @@
+file:
+  fileUrl: http://localhost:8080/files/
+  fileMap: /files/**
+  filePath: D://upload/
+spring:
+  http:
+    multipart:
+      max-file-size: -1

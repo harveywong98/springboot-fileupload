@@ -1,6 +1,6 @@
 package com.example.fileupload.service;
 
-import com.example.fileupload.controller.MyController;
+import com.example.fileupload.controller.UploadController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,8 +14,8 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
-public class MyService {
-    private static final Logger logger = LoggerFactory.getLogger(MyController.class);
+public class UploadService {
+    private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
 
     @Value("${file.filePath}")
     String filePath;

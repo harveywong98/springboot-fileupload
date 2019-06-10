@@ -1,7 +1,7 @@
 package com.example.fileupload.controller;
 
 import com.example.fileupload.common.entity.JsonResult;
-import com.example.fileupload.service.MyService;
+import com.example.fileupload.service.UploadService;
 import com.example.fileupload.common.utils.JsonResultGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,9 +10,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @ResponseBody
-public class MyController {
+public class UploadController {
     @Autowired
-    private MyService myService;
+    private UploadService uploadService;
 
     /**
      * 上传图片功能
@@ -22,7 +22,7 @@ public class MyController {
     @PostMapping("/upload")
     public JsonResult uploadImage(@RequestParam("file") MultipartFile file) {
         System.out.println(file);
-        String url = this.myService.upload(file);
+        String url = this.uploadService.upload(file);
         if (url==null) {
             // url为空，证明上传失败
             return JsonResultGenerator.genFailResult("上传失败");
@@ -32,5 +32,6 @@ public class MyController {
         System.out.println(url);
         return JsonResultGenerator.genSuccessResult(url);
     }
+
 
 }
